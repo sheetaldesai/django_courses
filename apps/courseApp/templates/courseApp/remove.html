@@ -1,0 +1,9 @@
+<h1>Are you sure you want to remove this course?</h1>
+<div>
+    Name: {{name}}
+    Description : {{desc}}
+</div>
+<form action="{% url 'courses:removeConfirm' id %}">
+    <button><a href="{% url 'courses:home' %}">No</a></button>
+    <input type="submit" name="remove" id="" value="Yes! I want to delete this!">
+</form>

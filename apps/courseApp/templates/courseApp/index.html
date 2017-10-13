@@ -1,0 +1,27 @@
+<table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        {% for course in courses %}
+            <tr>
+                <td>{{course.id}}</td>
+                <td>{{course.name}}</td>
+                <td>{{course.desc}}</td>
+                <td>
+                    <button><a href="{% url 'courses:remove' course.id%}">Remove</a></button>
+                    
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div>
+        <h1>Add New Course</h1>
+        <form action="{% url 'courses:add' %}" method = "Post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" name="add" id="" value="Add">
+        </form>
+    </div>
